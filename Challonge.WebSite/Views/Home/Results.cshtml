@@ -1,6 +1,6 @@
 ﻿@model TournamentModel
 
-@Ajax.BeginForm("SendResult", new AjaxOptions { UpdateTargetId = "formResult", OnSuccess = "formSuccess" });
+@using(Ajax.BeginForm("SendResult", new AjaxOptions { UpdateTargetId = "formResult", OnSuccess = "formSuccess" })){
 <input type="hidden" name="TournamentId" value="${Model.Id}" />
 <table>
 	<tr>
@@ -28,4 +28,4 @@
 	
 	<input type="submit" value="Enviar Resultado" />
 	<div id="formResult" title="Mensaje"></div>
-@Html.EndForm();
+}
