@@ -1,0 +1,16 @@
+﻿<viewdata tournaments="IEnumerable[[Tournament]]" showPublish="bool?" showStart="bool?" showReset="bool?" />
+<if condition="!tournaments.Any()">
+	No se encontraron torneos
+</if>
+<else>
+	<ul>
+		<li each="var tournament in tournaments">${Html.Encode(tournament.Name)} 
+			<span if="showPublish.HasValue && showPublish.Value"><a href="${Url.Action("Publish")}/${tournament.Id}">Publicar</a> | </span>
+			<span if="showStart.HasValue && showStart.Value"><a href="${Url.Action("Start")}/${tournament.Id}">Iniciar</a> | </span>
+			<span if="showReset.HasValue && showReset.Value"><a href="${Url.Action("Reset")}/${tournament.Id}">Resetear</a> | </span>
+			<a href="${Url.Action("Details")}/${tournament.Id}">Detalles</a> | 
+			<a href="${Url.Action("Edit")}/${tournament.Id}">Editar</a> | 
+			<a href="${Url.Action("Delete")}/${tournament.Id}">Borrar</a>
+		</li>
+	</ul>
+</else>

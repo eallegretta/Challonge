@@ -1,0 +1,31 @@
+﻿@model TournamentModel
+
+@Ajax.BeginForm("SendResult", new AjaxOptions { UpdateTargetId = "formResult", OnSuccess = "formSuccess" });
+<input type="hidden" name="TournamentId" value="${Model.Id}" />
+<table>
+	<tr>
+		<th>@Model.LoggedParticipant.Name <input type="hidden" id="HomePlayerId" name="HomePlayerId" value="@Model.LoggedParticipant.Id" /></th>
+		<td><input type="text" id="HomePlayerScores_0" name="HomePlayerScores[0]" value="0" class="required integer" /></td>	
+	</tr>
+	<tr>
+		<td>
+			<select id="AwayPlayerId" class="required" name="AwayPlayerId">
+				<option value="">-- Elija --</option>
+				@foreach(var player in Model.NotPlayedPlayers){
+				<option value="@player.Id">@player.Name</option>
+				}
+			</select>
+		</td>
+		<td><input type="text" id="AwayPlayerScores_0" name="AwayPlayerScores[0]" value="0" class="required integer" /></td>		
+	</tr>
+	<tr>
+		<th style="vertical-align:top">Ingresar la palabra</th>
+		<td colspan="3">
+		@Html.GenerateCaptcha()
+		</td>
+	</tr>
+</table>	
+	
+	<input type="submit" value="Enviar Resultado" />
+	<div id="formResult" title="Mensaje"></div>
+@Html.EndForm();

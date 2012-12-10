@@ -1,0 +1,115 @@
+﻿<viewdata model="TournamentEditorViewModel" />
+
+# Html.BeginForm();
+${Html.AntiForgeryToken()}
+<if condition="Model.Action == EditorAction.Create">
+	<input type="hidden" name="Id" value="0" />
+</if>
+<else>
+	<input type="hidden" name="Id" value="${Model.Tournament.Id}" />
+</else>
+
+
+<div class="field">
+<label for="Name">Nombre: </label>
+	<if condition="Model.Action != EditorAction.Details">
+		<input type="text" name="Name" id="Name" value="$!{Model.Tournament.Name}" class="required" />
+		$!{Html.ValidationMessage("Name")}
+	</if>
+	<else>
+		${Html.Encode(Model.Tournament.Name)}
+	</else>
+</div>
+
+<div class="field">
+<label for="Type">Tipo de Torneo: </label>
+	<if condition="Model.Action != EditorAction.Details">
+		${Html.DropDownList("TournamentType", Model.TournamentTypes)}
+	</if>
+	<else>
+		${Html.Encode(Model.TournamentTypeForDisplay)}
+	</else>
+</div>
+
+<fieldset>
+	<legend>Jugadores</legend>
+	<table id="players" width="500">
+		<tr><th>Nombre</th><th>Email</th><th>EA ID</th><th>Gameranger ID</th><th></th></tr>
+	</table>
+	
+	<a if="Model.Action != EditorAction.Details" href="javascript:void(0)" id="addPlayer">Agregar Jugador</a>
+</fieldset>
+
+<input if="Model.Action != EditorAction.Details" type="submit" value="Guardar" /> 
+
+# Html.EndForm();
+
+<content name="scripts">
+	<script type="text/javascript">
+		var players = ${Model.PlayersJson};	
+		$(function(){
+			bindPlayersTemplate();
+			
+			$("#addPlayer").click(function() {
+				players[players.length] = { _index: players.length, Id: 0, Name: "", Email: "", EAId: "", GameRangerId: "" };
+				
+				bindPlayersTemplate();
+			});
+		});
+		// Array Remove - By John Resig (MIT Licensed)
+		Array.prototype.remove = function(from, to) {
+		  var rest = this.slice((to || from) + 1 || this.length);
+		  this.length = from < 0 ? this.length + from : from;
+		  return this.push.apply(this, rest);
+		};
+		
+		function bindPlayersTemplate(){
+			var playersTable = $("#players");
+			playersTable.find(".playerRow").remove();
+			$("#playerTemplate").tmpl(players).appendTo(playersTable);
+			playersTable.find(".playerRow").each(function(index){
+				var player = players[index];
+				$("input.playerData", this).link(player, {
+					Id:				"Players[" + player._index + "].Id",
+					Name:			"Players[" + player._index + "].Name",
+					Email:			"Players[" + player._index + "].Email",
+					EAId:			"Players[" + player._index + "].EAId",
+					GameRangerId:	"Players[" + player._index + "].GameRangerId"
+				});
+			});
+		}
+		
+		function removePlayer(index){
+			players.remove(index);	
+			
+			for(var index = 0; index < players.length; index++){
+				players[index]._index = index;
+			}
+			
+			bindPlayersTemplate();
+		}
+	</script>
+
+	<if condition="Model.Action != EditorAction.Details">
+		<script id="playerTemplate" type="text/html">
+			<tr class="playerRow">
+				<td><input type="hidden" class="playerData" name="Players[${"${_index}"}].Id" value="${"${Id}"}" /><input class="playerData required" type="text" name="Players[${"${_index}"}].Name" value="${"${Name}"}" /></td>
+				<td><input class="playerData required email" type="text" name="Players[${"${_index}"}].Email" value="${"${Email}"}" /></td>
+				<td><input class="playerData required" type="text" name="Players[${"${_index}"}].EAId" value="${"${EAId}"}" /></td>
+				<td><input class="playerData required integer" type="text" name="Players[${"${_index}"}].GameRangerId" value="${"${GameRangerId}"}" /></td>
+				<td><a href="javascript:removePlayer(${"${_index}"})">Remove</a></td>
+			</tr>
+		</script>
+	</if>
+	<else>
+		<script id="playerTemplate" type="text/html">
+			<tr class="playerRow">
+				<td>${"${Name}"}</td>
+				<td>${"${Email}"}</td>
+				<td>${"${EAId}"}</td>
+				<td>${"${GameRangerId}"}</td>
+				<td></td>
+			</tr>
+		</script>
+	</else>
+</content>

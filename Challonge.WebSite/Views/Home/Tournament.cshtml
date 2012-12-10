@@ -1,0 +1,30 @@
+﻿@model TournamentModel
+
+<h2>@Model.Name</h2>
+
+<div id="touranment-tabs" class="tabs" style="display:none">
+	<ul>
+		<li><a href="#tournament-tab-home">Inicio</a></li>
+		<li><a href="#tournament-tab-table">Tabla de Posiciones</a></li>
+		<li><a href="#tournament-tab-players">Inscriptos</a></li>
+		<li><a href="#tournament-tab-fixture">Fixture</a></li>
+		<li><a href="#tournament-tab-results" if="Model.CanSendResults">Envio de Resultados</a></li>
+	</ul>
+	<div id="tournament-tab-table">
+		@{Html.RenderPartial("Table", Model);}
+	</div>
+	<div id="tournament-tab-home">
+		@{Html.RenderPartial("Home", Model);}
+	</div>
+	<div id="tournament-tab-players">
+		@{Html.RenderPartial("Players", Model);}
+	</div>
+	<div id="tournament-tab-fixture">
+		@{Html.RenderPartial("Fixture", Model);}
+	</div>
+	@if(Model.CanSendResults){
+	<div id="tournament-tab-results">
+		@{Html.RenderPartial("Results", Model);}
+	</div>
+	}
+</div>

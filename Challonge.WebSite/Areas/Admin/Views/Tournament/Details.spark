@@ -1,0 +1,4 @@
+﻿<content name="mainContent">
+	<h2>Detalles | ${Html.ActionLink("Volver", "Index")}</h2>
+	<use file="Editor.spark" />
+</content>

@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.2.2.8818
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Challonge.WebSite", "Challonge.WebSite.csproj", "{3167CB4F-5F1C-4796-9E1E-14370F97CE3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Challonge.Backend", "..\Challonge.Backend\Challonge.Backend.csproj", "{BD8825DB-1B32-48E4-A02A-B2C6FAC1B705}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3167CB4F-5F1C-4796-9E1E-14370F97CE3B}.Debug|x86.Build.0 = Debug|x86
+		{3167CB4F-5F1C-4796-9E1E-14370F97CE3B}.Debug|x86.ActiveCfg = Debug|x86
+		{3167CB4F-5F1C-4796-9E1E-14370F97CE3B}.Release|x86.Build.0 = Release|x86
+		{3167CB4F-5F1C-4796-9E1E-14370F97CE3B}.Release|x86.ActiveCfg = Release|x86
+		{BD8825DB-1B32-48E4-A02A-B2C6FAC1B705}.Debug|x86.Build.0 = Debug|x86
+		{BD8825DB-1B32-48E4-A02A-B2C6FAC1B705}.Debug|x86.ActiveCfg = Debug|x86
+		{BD8825DB-1B32-48E4-A02A-B2C6FAC1B705}.Release|x86.Build.0 = Release|x86
+		{BD8825DB-1B32-48E4-A02A-B2C6FAC1B705}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+EndGlobal

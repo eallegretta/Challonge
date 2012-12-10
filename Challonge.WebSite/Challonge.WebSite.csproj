@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{3167CB4F-5F1C-4796-9E1E-14370F97CE3B}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Challonge.WebSite</RootNamespace>
+    <AssemblyName>Challonge.WebSite</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <UseIISExpress>True</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>packages\MySql.Data.6.5.4\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Recaptcha">
+      <HintPath>packages\recaptcha.1.0.5.0\lib\.NetFramework 4.0\Recaptcha.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers">
+      <HintPath>packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <HintPath>packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <HintPath>packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionResults\RssActionResult.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\TournamentController.cs" />
+    <Compile Include="Areas\Admin\Models\EditorAction.cs" />
+    <Compile Include="Areas\Admin\Models\Tournament\TournamentEditorViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\Tournament\TournamentIndexViewModel.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extensions\CaptchaExtensions.cs" />
+    <Compile Include="Filters\CaptchaValidator.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HttpHandlers\FFVAAuthenticationHandler.cs" />
+    <Compile Include="Models\MatchModel.cs" />
+    <Compile Include="Models\PlayerModel.cs" />
+    <Compile Include="Models\PlayerTablePosition.cs" />
+    <Compile Include="Models\ScoreModel.cs" />
+    <Compile Include="Models\TournamentModel.cs" />
+    <Compile Include="Models\TournamentType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Areas\Admin\Views\Tournament\Create.spark" />
+    <None Include="Areas\Admin\Views\Tournament\Details.spark" />
+    <None Include="Areas\Admin\Views\Tournament\Editor.spark" />
+    <None Include="Areas\Admin\Views\Tournament\Index.spark" />
+    <None Include="Areas\Admin\Views\Tournament\TournamentIndexList.spark" />
+    <None Include="Areas\Admin\Views\Web.config" />
+    <None Include="Content\Site.css" />
+    <None Include="Global.asax" />
+    <None Include="packages.config" />
+    <None Include="Scripts\jquery-1.7.2-vsdoc.js" />
+    <None Include="Scripts\jquery-1.7.2.js" />
+    <None Include="Scripts\jquery-1.7.2.min.js" />
+    <None Include="Scripts\modernizr-2.5.3.js" />
+    <None Include="Views\Home\Fixture.cshtml" />
+    <None Include="Views\Home\Home.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Players.cshtml" />
+    <None Include="Views\Home\Results.cshtml" />
+    <None Include="Views\Home\SendResultCompleted.cshtml" />
+    <None Include="Views\Home\Table.cshtml" />
+    <None Include="Views\Home\Tournament.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\web.config" />
+    <None Include="Views\_ViewStart.cshtml" />
+    <None Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ActionResults" />
+    <Folder Include="Areas" />
+    <Folder Include="Areas\Admin" />
+    <Folder Include="Areas\Admin\Controllers" />
+    <Folder Include="Areas\Admin\Models" />
+    <Folder Include="Areas\Admin\Models\Tournament" />
+    <Folder Include="Areas\Admin\Views" />
+    <Folder Include="Areas\Admin\Views\Shared" />
+    <Folder Include="Areas\Admin\Views\Tournament" />
+    <Folder Include="Extensions" />
+    <Folder Include="Filters" />
+    <Folder Include="HttpHandlers" />
+    <Folder Include="Models" />
+    <Folder Include="Views\Admin" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Challonge.Backend\Challonge.Backend.csproj">
+      <Project>{BD8825DB-1B32-48E4-A02A-B2C6FAC1B705}</Project>
+      <Name>Challonge.Backend</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>8080</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8080/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl></CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

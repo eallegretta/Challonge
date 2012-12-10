@@ -1,0 +1,54 @@
+﻿@model TournamentModel
+
+Ver resultados de: <select id="fixturePlayerId" onchange="javascript:fixturePlayerIdOnChange()">
+						<option value="">Todos los jugadores</option>
+						@foreach(var player in Model.Players){
+							<option value="@player.Id">@player.Name</option>
+						}
+					</select><br />
+
+@foreach(var round in Model.Matches.Keys.OrderBy(x => x)){
+<fieldset class="round">
+	<legend>Fecha: @round</legend>
+	<table width="100%" class="fixture">
+		@foreach(var match in Model.Matches[round]){
+		<tr>
+			<th class="player_@match.Player1.Id" style="width:50%">@match.Player1.Name</th>
+			<th style="width:30px" class="score">
+				@if(match.Played){
+					@match.ScorePlayer1
+				}
+			</th>
+			<th class="player_@match.Player2.Id" style="width:30px" class="score">
+				@if(match.Played){
+					@match.ScorePlayer2
+				}
+			</th>
+			<th style="width:50%">@match.Player2.Name</th>
+		</tr>
+		}
+	</table>
+</fieldset>
+}
+<div style="clear:both"></div>
+<script type="text/javascript">
+	if (!window.fixturePlayerIdOnChange) {
+		function fixturePlayerIdOnChange() {
+			var value = $("#fixturePlayerId").val();
+			if (!!value) {
+				$(".fixture tr").each(function() {
+					var row = $(this);
+					if (row.find("th.player_" + value).length == 0) {
+						row.hide();
+					}
+					else {
+						row.show();
+					}
+				});
+			}
+			else {
+				$(".fixture tr").show();
+			}
+		}
+	}
+</script>

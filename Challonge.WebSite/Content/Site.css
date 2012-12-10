@@ -1,0 +1,89 @@
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+body
+{
+	font-family:Arial;
+	font-size:11px;
+}
+
+.round 
+{
+	float:left;
+	width:45%;
+}
+
+.tableHeader th
+{
+	background-color:#cccccc;
+	font-weight:bold;
+}
+
+.playerName
+{
+	background-color:#efefef;
+	font-weight:bold;
+}
+
+
+.tableRow td
+{
+	background-color:#efefef;
+}
+
+.tableAlternateRow td 
+{
+	background-color:white;
+}
+
+.firstTableRow td 
+{
+	font-size:larger;
+	background-color:#efefef;
+}
+
+.score
+{
+	font-weight:bold;
+}
+
+
+.score span
+{
+	color:white;
+	background-color:#0066cc;
+	padding:3px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+legend
+{
+	font-weight:bold;
+}

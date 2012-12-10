@@ -1,0 +1,31 @@
+﻿@model TournamentModel
+
+<table width="100%"  cellpadding="3">
+	<tr class="tableHeader">
+		<th></th>
+		<th>Jugador</th>
+		<th>PJ</th>
+		<th>PG</th>
+		<th>PE</th>
+		<th>PP</th>
+		<th>GF</th>
+		<th>GC</th>
+		<th>Ptos</th>
+	</tr>
+	@for(var index = 0; index < Model.PlayerPositions.Count; index++){
+		var player = Model.PlayerPositions[index];
+		
+		
+		<tr class="@(index % 2 == 0 ? "tableRow" : "tableAlternateRow")">
+			<td style="width:30px; text-align:right" class="score">@(index + 1)</td>
+			<td class="playerName">@player.Player.Name</td>
+			<td style="width:30px; text-align:center">@player.Played</td>
+			<td style="width:30px; text-align:center">@player.Wins</td>
+			<td style="width:30px; text-align:center">@player.Tie</td>
+			<td style="width:30px; text-align:center">@player.Lost</td>
+			<td style="width:30px; text-align:center">@player.GoalsFavor</td>
+			<td style="width:30px; text-align:center">@player.GoalsAgainst</td>
+			<td style="width:30px; text-align:center" class="score"><span>@player.Score</span></td>
+		</tr>
+	}		
+</table>

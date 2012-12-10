@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ChallongeApi.MvcSite.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CaptchaPublicKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">6LeaPL8SAAAAAHPavxIFfa7iCJW0ctMaEVit25P7</Value>
+    </Setting>
+    <Setting Name="CaptchaPrivateKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">6LeaPL8SAAAAAEtn4SB77ekFMcdUZR3bi_2oqcJz</Value>
+    </Setting>
+    <Setting Name="JoomlaSessionsTable" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">jos_session</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

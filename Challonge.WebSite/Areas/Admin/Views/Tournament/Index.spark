@@ -1,0 +1,26 @@
+﻿<viewdata model="Challonge.WebSite.Areas.Admin.Models.TournamentModels.TournamentIndexViewModel" />
+
+<content name="mainContent">
+    <h2>Torneos | ${Html.ActionLink("Crear Torneo", "Create")} </h2>
+    
+    <div id="touranment-tabs" class="tabs">
+		<ul>
+			<li><a href="#tournament-tab-inprogress">Torneos en Progreso</a></li>
+			<li><a href="#tournament-tab-published">Torneos en Fase de Registro</a></li>
+			<li><a href="#tournament-tab-notpublished">Torneos sin Publicar</a></li>
+			<li><a href="#tournament-tab-completed">Torneos Completados</a></li>
+		</ul>
+		<div id="tournament-tab-inprogress">
+			<use file="TournamentIndexList" tournaments="Model.InProgressTouranments" />
+		</div>
+		<div id="tournament-tab-published">
+			<use file="TournamentIndexList" tournaments="Model.PublishedTournaments" />
+		</div>
+		<div id="tournament-tab-notpublished">
+			<use file="TournamentIndexList" tournaments="Model.NotPublishedTournaments" />
+		</div>
+		<div id="tournament-tab-completed">
+			<use file="TournamentIndexList" tournaments="Model.CompletedTournaments" />
+		</div>
+    </div>
+</content>

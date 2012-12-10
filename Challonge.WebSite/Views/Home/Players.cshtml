@@ -1,0 +1,14 @@
+﻿<table width="100%">
+	<tr class="tableHeader">
+		<th>Nombre</th>
+		<th>Email</th>
+		<th>Origin ID</th>
+	</tr>
+	@foreach(var player in Model.Players){
+	<tr>
+		<td>@player.Name</td>
+		<td>@player.Email</td>
+		<td>@player.EAId</td>
+	</tr>
+	}
+</table>
