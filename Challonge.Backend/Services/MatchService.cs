@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Challonge.Backend.Caching;
 using Challonge.Backend.Entities;
 using System.Linq;
 
@@ -10,6 +11,8 @@ namespace Challonge.Backend.Services
 	{
 		public Match[] List(int tournamentId)
 		{
+			return CacheManager.GetOrSet<Match[]>("matches-" + tournamentId, () =>
+			                               {
 			var client = new WebClient();
 			
 			var response = client.Get<MatchResponse[]>(string.Format("tournaments/{0}/matches.json", tournamentId));
@@ -18,6 +21,7 @@ namespace Challonge.Backend.Services
 						select r.Match;
 			
 			return query.ToArray();
+			                               });
 		}
 
 		public Match SendResult(int tournamentId, int matchId, string winnerId, string scoreCsv)

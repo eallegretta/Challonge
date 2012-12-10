@@ -11,6 +11,7 @@
     <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <UseIISExpress>True</UseIISExpress>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -97,6 +98,7 @@
     <Compile Include="Areas\Admin\Models\EditorAction.cs" />
     <Compile Include="Areas\Admin\Models\Tournament\TournamentEditorViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Tournament\TournamentIndexViewModel.cs" />
+    <Compile Include="Controllers\Caching.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\CaptchaExtensions.cs" />
     <Compile Include="Filters\CaptchaValidator.cs" />
@@ -196,9 +198,9 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!--<Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />-->
   <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
-    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)" />
+    <!--<AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)" />-->
   </Target>
   <ProjectExtensions>
     <VisualStudio>
@@ -211,8 +213,7 @@
           <IISUrl>http://localhost:8080/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl></CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

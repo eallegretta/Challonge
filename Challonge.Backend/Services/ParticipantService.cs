@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Challonge.Backend.Caching;
 using Challonge.Backend.Entities;
 
 namespace Challonge.Backend.Services
@@ -11,6 +11,8 @@ namespace Challonge.Backend.Services
 	{
 		public Participant[] List(int tournamentId)
 		{
+			return CacheManager.GetOrSet<Participant[]>("participants-" + tournamentId, () => {
+			
 			WebClient client = new WebClient();
 			var response = client.Get<ParticipantResponse[]>(string.Format("tournaments/{0}/participants.json", tournamentId));
 
@@ -18,6 +20,7 @@ namespace Challonge.Backend.Services
 						select r.Participant;
 			
 			return query.ToArray();
+			                                            });
 		}
 
 		public void Create(Participant participant)
