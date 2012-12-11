@@ -189,7 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Challonge.Backend\Challonge.Backend.csproj">
-      <Project>{BD8825DB-1B32-48E4-A02A-B2C6FAC1B705}</Project>
+      <Project>{bd8825db-1b32-48e4-a02a-b2c6fac1b705}</Project>
       <Name>Challonge.Backend</Name>
     </ProjectReference>
   </ItemGroup>
