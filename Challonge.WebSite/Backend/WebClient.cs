@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Net;
-using System.Xml.Serialization;
 using System.IO;
-using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
-namespace Challonge.Backend
+namespace Challonge.WebSite.Backend
 {
 	public class WebClient
 	{
@@ -32,11 +30,12 @@ namespace Challonge.Backend
 			//serialized.AppendFormat(@"<?xml version=""1.0"" encoding=""UTF-8""?><{0}>", dataContractAttribute.Name);
 			foreach (var property in instance.GetType().GetProperties())
 			{
-				var attrs = property.GetCustomAttributes(typeof(DataMemberAttribute), true);
+				var attrs = property.GetCustomAttributes(typeof(JsonProperty), true);
 				if (attrs != null && attrs.Length == 1)
 				{
-					var dataMemberAttr = attrs[0] as DataMemberAttribute;
-					serialized.AppendFormat("{0}={1}&", dataMemberAttr.Name, property.GetValue(instance, null));
+					var jsonPropertyAttr = attrs[0] as JsonProperty;
+                    if(jsonPropertyAttr != null)
+    					serialized.AppendFormat("{0}={1}&", jsonPropertyAttr.PropertyName, property.GetValue(instance, null));
 					//serialized.AppendFormat("<{0}>{1}</{0}>", dataMemberAttr.Name, property.GetValue(instance, null));
 				}
 			}

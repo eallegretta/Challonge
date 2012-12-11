@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web;
-using System.Security.Principal;
 using System.Web.Configuration;
 using System.Web.Security;
 using MySql.Data.MySqlClient;
 using System.Web.SessionState;
 using System.Configuration;
 
-namespace Challonge.WebSite.HttpModules
+namespace Challonge.WebSite.HttpHandlers
 {
 	public class FFVAAuthenticationHandler : IHttpHandler, IRequiresSessionState
 	{

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Text;
-using Challonge.Backend.Entities;
+using Challonge.WebSite.Backend.Entities;
 
 namespace Challonge.WebSite.Models
 {

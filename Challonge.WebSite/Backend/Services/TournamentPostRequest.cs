@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Challonge.Backend.Entities;
-using System.Xml;
-using System.Xml.Serialization;
+﻿using Challonge.WebSite.Backend.Entities;
 using Newtonsoft.Json;
 
-namespace Challonge.Backend.Services
+namespace Challonge.WebSite.Backend.Services
 {
 	[JsonObject("tournament")]
 	public class TournamentPostRequest

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
-using Challonge.Backend.Entities;
+using Challonge.WebSite.Backend.Entities;
 using Newtonsoft.Json;
 
 namespace Challonge.WebSite.Models

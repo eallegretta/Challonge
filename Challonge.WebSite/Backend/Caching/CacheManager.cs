@@ -6,11 +6,12 @@
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
+
 using System;
 using System.Web;
 using System.Web.Caching;
 
-namespace Challonge.Backend.Caching
+namespace Challonge.WebSite.Backend.Caching
 {
 	/// <summary>
 	/// Description of CacheManager.

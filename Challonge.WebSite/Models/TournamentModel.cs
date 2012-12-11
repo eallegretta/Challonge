@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
-using Challonge.Backend.Entities;
 using System.Linq;
+using Challonge.WebSite.Backend.Entities;
 
 namespace Challonge.WebSite.Models
 {

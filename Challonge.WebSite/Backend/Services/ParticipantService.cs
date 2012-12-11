@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Challonge.Backend.Caching;
-using Challonge.Backend.Entities;
+﻿using System.Linq;
+using Challonge.WebSite.Backend.Caching;
+using Challonge.WebSite.Backend.Entities;
 
-namespace Challonge.Backend.Services
+namespace Challonge.WebSite.Backend.Services
 {
 	public class ParticipantService
 	{

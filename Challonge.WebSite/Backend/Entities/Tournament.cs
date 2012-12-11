@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Xml.Serialization;
-using System.Xml.Schema;
 using Newtonsoft.Json;
 
-namespace Challonge.Backend.Entities
+namespace Challonge.WebSite.Backend.Entities
 {
 	[Serializable]
 	[JsonObject("tournament")]

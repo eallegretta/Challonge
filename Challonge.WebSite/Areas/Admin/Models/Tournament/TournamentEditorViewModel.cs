@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web;
-using Challonge.Backend.Entities;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using Challonge.WebSite.Models;
 
-namespace Challonge.WebSite.Areas.Admin.Models.TournamentModels
+namespace Challonge.WebSite.Areas.Admin.Models.Tournament
 {
 	public class TournamentEditorViewModel
 	{
