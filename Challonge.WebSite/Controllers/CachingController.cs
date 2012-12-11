@@ -6,7 +6,7 @@ namespace Challonge.WebSite.Controllers
 	/// <summary>
 	/// Description of Caching.
 	/// </summary>
-	public class Caching : Controller
+	public class CachingController : Controller
 	{
 		public string Clear()
 		{
