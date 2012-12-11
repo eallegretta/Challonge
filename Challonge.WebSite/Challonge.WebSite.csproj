@@ -103,7 +103,7 @@
     <Compile Include="Backend\Services\TournamentService.cs" />
     <Compile Include="Backend\StringWriterWithEncoding.cs" />
     <Compile Include="Backend\WebClient.cs" />
-    <Compile Include="Controllers\Caching.cs" />
+    <Compile Include="Controllers\CachingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\CaptchaExtensions.cs" />
     <Compile Include="Filters\CaptchaValidator.cs" />
