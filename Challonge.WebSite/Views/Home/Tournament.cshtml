@@ -7,8 +7,10 @@
 		<li><a href="#tournament-tab-home">Inicio</a></li>
 		<li><a href="#tournament-tab-table">Tabla de Posiciones</a></li>
 		<li><a href="#tournament-tab-players">Inscriptos</a></li>
-		<li><a href="#tournament-tab-fixture">Fixture</a></li>
-		<li><a href="#tournament-tab-results" if="Model.CanSendResults">Envio de Resultados</a></li>
+	    <li><a href="#tournament-tab-fixture">Fixture</a></li>
+        @if(Model.CanSendResults){
+            <li><a href="#tournament-tab-results">Envio de Resultados</a></li>
+        }
 	</ul>
 	<div id="tournament-tab-table">
 		@{Html.RenderPartial("Table", Model);}
